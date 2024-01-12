@@ -5,7 +5,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addShortcode("PageMetadata", PageMetadata);
 
-  eleventyConfig.addPassthroughCopy("**/*.mp3");
+  eleventyConfig.addPassthroughCopy("site/mp3");
 
   return {
     templateFormats: [

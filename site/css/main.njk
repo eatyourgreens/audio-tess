@@ -1,0 +1,49 @@
+---
+permalink: /css/main.css
+eleventyExcludeFromCollections: true
+---
+body {
+  font-family: sans-serif;
+  width: min(95vw,120ch);
+  margin: auto;
+}
+
+.subjectGrid {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  grid-gap: .5ch;
+}
+
+#subject-metadata + dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: .5ch;
+}
+
+#subject-metadata + dl > dt {
+  font-weight: bold;
+}
+
+#subject-metadata + dl > dd {
+  margin: 0;
+}
+
+nav > ol {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#notebooks > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20ch);
+  grid-gap: 1ch;
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+#notebooks > ul > li {
+  background: #f7f7f7;
+  padding: .5ch;
+  outline: 1px solid #ddd;
+}

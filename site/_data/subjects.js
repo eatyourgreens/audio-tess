@@ -21,7 +21,6 @@ async function fetchAllSubjects(query) {
   allSubjects = allSubjects.map(subject => allSubjects.find(s => s.id === subject.id))
   const uniqueSubjects = [...new Set(allSubjects)]
   console.log('subjects:', uniqueSubjects.length)
-  console.log(uniqueSubjects.map(s => s.id))
   return uniqueSubjects.reverse()
 }
 

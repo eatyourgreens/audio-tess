@@ -34,7 +34,7 @@ nav > ol {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#notebooks > ul {
+.subjectPage > ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, 20ch);
   grid-gap: 1ch;
@@ -42,8 +42,13 @@ nav > ol {
   padding-inline-start: 0;
 }
 
-#notebooks > ul > li {
+.subjectPage > ul > li {
   background: #f7f7f7;
   padding: .5ch;
   outline: 1px solid #ddd;
+}
+
+.subjectPage > ul > li img {
+  object-fit: contain;
+  width: 100%;
 }

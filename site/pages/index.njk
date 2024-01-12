@@ -1,0 +1,34 @@
+---
+layout: default
+pagination:
+  data: subjects
+  size: 100
+  alias: subjectPage
+permalink: "/pages/{{pagination.pageNumber}}/"
+---
+<nav aria-label="Page navigation">
+  <ol>
+    <li>{% if pagination.href.previous %}<a href="/audio-tess{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+    <li>Audio TESS</li>
+    <li>{% if pagination.href.next %}<a href="/audio-tess{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+  </ol>
+</nav>
+<main class="subjectPage" aria-labelledby="page-heading">
+    <h1 id="page-heading">Subjects: page {{ pagination.pageNumber }}</h1>
+    <ul>
+    {%- for subject in subjectPreviews %}
+      <li>
+        <a href="/audio-tess/subjects/{{subject.id}}">
+          <img width="200" alt="Light curve {{ subject.id }}" src="{{ subject.preview }}" />
+        </a>
+      </li>
+    {% endfor -%}
+    </ul>
+</main>
+<nav aria-label="Page navigation">
+  <ol>
+    <li>{% if pagination.href.previous %}<a href="/audio-tess{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+    <li>Audio TESS</li>
+    <li>{% if pagination.href.next %}<a href="/audio-tess{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+  </ol>
+</nav>

@@ -1,0 +1,45 @@
+---
+layout: default
+pagination:
+  data: examples
+  size: 1
+  alias: subject
+permalink: "/examples/{{ subject.id}}/"
+---
+<nav aria-label="Page navigation">
+  <ol>
+    <li>{% if pagination.href.previous %}<a href="/audio-tess{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+    <li>Audio TESS</li>
+    <li>{% if pagination.href.next %}<a href="/audio-tess{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+  </ol>
+</nav>
+<main class="subject" aria-labelledby="page-heading">
+    <h1 id="page-heading">Subject {{ subject.id }}</h1>
+    <div class="subjectGrid">
+      <section aria-labelledby="subject-heading">
+        <h2 id="subject-heading">
+          Light curve
+        </h2>
+        {% for location in subjectLocations %}
+        <img width=600 alt="{{location.alt}}" src="{{location.src}}" />
+        {% endfor %}
+        <audio controls src="/audio-tess/mp3/{{subject.id}}.mp3"></audio>
+      </section>
+      <section aria-labelledby="subject-metadata">
+        <h2 id="subject-metadata">Metadata</h2>
+        <dl>
+        {% for key, value in subject.metadata %}
+          <dt>{{ key }}</dt>
+          <dd>{{ value | dump }}</dd>
+        {% endfor %}
+        </dl>
+      </section>
+    </div>
+    <nav aria-label="Page navigation">
+      <ol>
+        <li>{% if pagination.href.previous %}<a href="/audio-tess{{ pagination.href.previous }}">Previous</a>{% else %}Previous{% endif %}</li>
+        <li>Audio TESS</li>
+        <li>{% if pagination.href.next %}<a href="/audio-tess{{ pagination.href.next }}">Next</a>{% else %}Next{% endif %}</li>
+      </ol>
+    </nav>
+</main>

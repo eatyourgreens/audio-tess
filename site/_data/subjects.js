@@ -1,6 +1,21 @@
 import fetchWithRetry from './fetchWithRetry.js'
 import subjectSet from './subjectSet.js'
 
+function countTransits(subject) {
+  const feedbackTransits = Object.entries(subject.metadata)
+    .filter(([key, value]) => key.startsWith('#feedback_') && key.endsWith('_x'))
+  subject.metadata.transitCount = feedbackTransits.length
+}
+
+function transitCountSort(a, b) {
+  return a.metadata.transitCount - b.metadata.transitCount
+}
+
+function filterSubjects(subjects) {
+  subjects.forEach(countTransits)
+  return subjects.sort(transitCountSort)
+}
+
 /*
 Fetches ALL Subjects from a subject set.
 
@@ -22,7 +37,7 @@ async function fetchAllSubjects(query) {
   allSubjects = allSubjects.map(subject => allSubjects.find(s => s.id === subject.id))
   const uniqueSubjects = [...new Set(allSubjects)]
   console.log('subjects:', uniqueSubjects.length)
-  return uniqueSubjects.reverse()
+  return filterSubjects(uniqueSubjects)
 }
 
 /*

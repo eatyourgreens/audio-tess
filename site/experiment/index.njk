@@ -1,0 +1,16 @@
+---
+layout: default
+permalink: "/experiment/"
+---
+<main class="subjectPage" aria-labelledby="page-heading">
+    <h1 id="page-heading">Examples</h1>
+    <ul>
+    {%- for subject in subjectPreviews %}
+      <li>
+        <a href="/audio-tess/experiment/{{subject.id}}">
+          <img width="200" alt="Light curve {{ subject.id }}" src="{{ subject.preview }}" />
+        </a>
+      </li>
+    {% endfor -%}
+    </ul>
+</main>
